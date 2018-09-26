@@ -15,13 +15,13 @@ const Item = styled.li`
 
 const Link = styled.a`
     display: block;   
-    color: #527c89;
+    color: var(--blue);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: medium;
     :hover {
-      color: rgba(50,50,50,0.82) ;
+      color: var(--light-blue) ;
     }
 `
 

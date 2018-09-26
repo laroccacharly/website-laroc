@@ -1,13 +1,38 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation';
+import Introduction from './Introduction';
+
+import styled from 'styled-components'
+
+const MainSection = styled.section`
+    height: 40vh;
+    min-height: 500px;
+    background-image: linear-gradient(to bottom right, var(--blue) , var(--light-blue));
+
+`
+
+const Root = styled.div`
+    // Main colors
+    --light-blue: #839DAE;
+    --blue: #728195;
+    --redish: #82838C;
+    --green-brown: #9E9F9A;
+    --high-blue: #589AB4;
+    --dark-blue: #3E465C;
+    --white: #DAE1DE;
+
+`
 
 
 class App extends Component {
   render() {
     return (
-      <div>
-          <Navigation/>
-      </div>
+      <Root>
+        <Navigation/>
+        <MainSection>
+          <Introduction/>
+        </MainSection>
+      </Root>
     );
   }
 }
