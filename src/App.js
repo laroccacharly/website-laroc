@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Navigation from './Navigation';
 import Introduction from './Introduction';
+import Banner from './Banner';
 
 import styled from 'styled-components'
 
 const MainSection = styled.section`
     height: 40vh;
     min-height: 500px;
+    display: flex;
     background-image: linear-gradient(to bottom right, var(--blue) , var(--light-blue));
 
 `
@@ -30,7 +32,8 @@ class App extends Component {
       <Root>
         <Navigation/>
         <MainSection>
-          <Introduction/>
+            <Introduction/>
+            <Banner/>
         </MainSection>
       </Root>
     );
