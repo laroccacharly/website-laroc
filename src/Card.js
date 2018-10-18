@@ -1,48 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components'
 
-const styles = {
-    card: {
-        width: 250,
-},
-    media: {
-        // ⚠️ object-fit is not supported by IE11.
-        objectFit: 'cover',
-    },
-};
 
-function ImgMediaCard(props) {
-    const { classes } = props;
+const Main = styled.div`
+  background-image: linear-gradient(${props => props.gradient_color_1}, ${props => props.gradient_color_2});
+`
+
+const CardBackground = styled.div`
+  width: 50%;
+  height: 80%;
+  background: var(--white);
+`
+
+const Image = styled.img`
+
+`
+
+let ImgMediaCard = ({image_name, gradient_color_1, gradient_color_2, title, tags, published_date})  => {
+
+
     return (
-        <Card className={classes.card}>
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    className={classes.media}
-                    height="140"
-                    src="https://raw.githubusercontent.com/yashk2810/yashk2810.github.io/master/images/mnist.png"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="headline" component="h2">
-                        Mnist Classifier
-                    </Typography>
-                    <Typography component="caption">
-                        Docker, Python, Go and React
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-        </Card>
+        <Main gradient_color_1={gradient_color_1} gradient_color_2={gradient_color_2}>
+            <h1>{title}</h1>
+            <CardBackground>
+                <img src="/public/project_images/mnist.jpeg"/>
+            </CardBackground>
+
+            <h2>{tags}</h2>
+            <p>{published_date}</p>
+        </Main>
+
     );
 }
 
 ImgMediaCard.propTypes = {
-    classes: PropTypes.object.isRequired,
+    image_name: PropTypes.string,
+    gradient_color_1: PropTypes.string,
+    gradient_color_2: PropTypes.string,
+    title: PropTypes.string,
+    tags: PropTypes.array,
+    published_date: PropTypes.string
 };
 
-export default withStyles(styles)(ImgMediaCard);
+// API of a card
+
+// Image size unknown 600 x 800 :
+// https://www.pexels.com
+// https://unsplash.com
+// https://blog.snappa.com/free-stock-photos/
+// Gradient (two colors)
+// Title
+// Tags ( images of techs )
+// Published date
+
+export default ImgMediaCard;
