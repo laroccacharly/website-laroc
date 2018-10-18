@@ -1,6 +1,7 @@
 import React  from 'react';
 import styled from 'styled-components'
 import Card from './Card';
+import json from "./projects"
 
 
 const Content = styled.div`
@@ -23,7 +24,7 @@ const Content = styled.div`
 let Banner = () => {
     return (
         <Content>
-            <Card/>
+            <Card {...json.projects[0]}/>
         </Content>
 
     )
